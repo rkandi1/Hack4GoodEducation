@@ -2,7 +2,7 @@
 
 ## Instructions
 1. cd react-flask-app
-2. npn install
+2. npm install
 3. yarn start
 4. ^c to exit
 
