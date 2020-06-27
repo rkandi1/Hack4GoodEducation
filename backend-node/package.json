@@ -1,0 +1,27 @@
+{
+  "name": "backend-node",
+  "version": "1.0.0",
+  "description": "Backend for hackathlon for good app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkandi1/Hack4GoodEducation.git"
+  },
+  "keywords": [
+    "azure",
+    "computer-vision",
+    "education"
+  ],
+  "author": "Haris, Kandi, Kalra, Chittanuru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkandi1/Hack4GoodEducation/issues"
+  },
+  "homepage": "https://github.com/rkandi1/Hack4GoodEducation#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
