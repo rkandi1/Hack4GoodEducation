@@ -27,6 +27,18 @@ const useStyles = makeStyles({
   }
 });
 
+function handleInputChange(event) {
+  this.setState({
+      name: event.target.value
+  })
+}
+
+function cleanInput() {
+  this.setState({
+      name: ''
+  })
+}
+
 const SimpleCard = (props) => {
   const [answer1, setAnswer1] = useState('65536');
   const [answer2, setAnswer2] = useState("36");
@@ -56,7 +68,7 @@ const SimpleCard = (props) => {
           <br />
           <br />
           <Typography align={'center'} variant="body2" component="p">
-            <TextField id="standard-basic" label="Standard" onChange={(e)=>{setTypedAnswer(e.target.value)}}/>
+            <TextField id="standard-basic1" onClick={()=>{setTypedAnswer('');}} onChange={(e)=>{setTypedAnswer(e.target.value)}}/>
           </Typography>
         </CardContent>
         <CardActions style={{justifyContent: 'center'}}>
@@ -86,7 +98,7 @@ const SimpleCard = (props) => {
           <br />
           <br />
           <Typography align={'center'} variant="body2" component="p">
-            <TextField id="standard-basic" label="Standard" onChange={(e)=>{setTypedAnswer(e.target.value)}}/>
+            <TextField id="standard-basic2" onClick={()=>{setTypedAnswer('');}} onChange={(e)=>{setTypedAnswer(e.target.value)}}/>
           </Typography>
         </CardContent>
         <CardActions style={{justifyContent: 'center'}}>
@@ -116,7 +128,7 @@ const SimpleCard = (props) => {
           <br />
           <br />
           <Typography align={'center'} variant="body2" component="p">
-            <TextField id="standard-basic" label="Standard" onChange={(e)=>{setTypedAnswer(e.target.value)}}/>
+            <TextField id="3standard-basic" onClick={()=>{setTypedAnswer('');}} onChange={(e)=>{setTypedAnswer(e.target.value)}}/>
           </Typography>
         </CardContent>
         <CardActions style={{justifyContent: 'center'}}>
