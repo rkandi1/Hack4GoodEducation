@@ -29,6 +29,7 @@ const SimpleCard = (props) => {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
+    
     <Grid xs={3}>
       <Card className={classes.root}>
         <CardContent>
