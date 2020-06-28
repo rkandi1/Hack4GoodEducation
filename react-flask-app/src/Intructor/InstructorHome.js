@@ -14,10 +14,15 @@ const InstructorHome = (props) => {
                        {'Name':'Themis', 'Emotion':'Neutral'}];
   
   useEffect(() => {
-    fetch("http://localhost:3000/teacher/emotion")
+    fetch("http://localhost:3000/teacher/emotion", {
+      headers : { 
+        'Accept': 'application/json'
+       }
+    })
     .then((resp) => resp.json())
     .then((data) => {
       alert(data);
+      console.log(data);
     })
     .catch((err) => {
       alert(err);

@@ -59,6 +59,7 @@ app.post('/image-upload', upload.single('image.png'), (req, res, next) => {
         response.data.forEach((face) => {
             console.log('Emotion: ' + JSON.stringify(face.faceAttributes.emotion));
             emotions.push(JSON.stringify(face.faceAttributes.emotion));
+            console.log(emotions)
             res.send({'message': 'Successfully sent emotion'})
         });
     }).catch(function (error) {
@@ -71,8 +72,9 @@ app.post('/image-upload', upload.single('image.png'), (req, res, next) => {
 //      >> made by teacher
 app.get('/teacher/emotion', (req, res, next) => {
     // TODO: Send the most recent emotion from the stack of emotions!
-    const most_recent_emotion = emotions.pop();
-    res.send(`{emotion: ${most_recent_emotion}}`);
+    const most_recent_emotion = emotions[emotions.length-1];
+    console.log(emotions)
+    res.send(`{"emotion": ${most_recent_emotion}}`);
 });
 
 
