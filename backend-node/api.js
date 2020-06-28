@@ -5,8 +5,10 @@
 */
 
 // Basic machinery
+require('dotenv').config()
 const express = require('express');
 const app = express();
+const fs = require('fs')
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -20,7 +22,14 @@ let emotions = [];
 // multer
 const multer = require('multer');
 const { json } = require('express');
-var upload = multer({dest: 'image-upload/'});
+var upload = multer({
+    storage: multer.diskStorage({
+        destination: 'image-upload/',
+        filename: function(req, file, cb) {
+            cb(null, file.fieldname)
+        }
+    })
+});
 
 // axios
 const axios = require('axios').default;
@@ -28,7 +37,7 @@ let subscriptionKey = process.env['FACE_SUBSCRIPTION_KEY'];
 let endpoint = process.env['FACE_ENDPOINT'] + '/face/v1.0/detect';
 
 app.post('/image-upload', upload.single('image.png'), (req, res, next) => {
-    console.log("Uploaded a file: " + req.file);
+    console.log("Uploaded a file: " + req.file.filename);
     console.log("About to send POST request to AXIOS!")
     let imageUrl = 'http://localhost:3000/image-upload/image.png';
     axios({
@@ -39,8 +48,10 @@ app.post('/image-upload', upload.single('image.png'), (req, res, next) => {
             returnFaceLandmarks: false,
             returnFaceAttributes: 'emotion'
         },
-        data: {
-            url: imageUrl
+        data: fs.readFileSync("image-upload/image.png"),
+        headers: {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            'Content-Type': 'application/octet-stream'
         }
     }).then( function(response) {
         console.log('Status text: ' + response.status);
@@ -48,9 +59,11 @@ app.post('/image-upload', upload.single('image.png'), (req, res, next) => {
         response.data.forEach((face) => {
             console.log('Emotion: ' + JSON.stringify(face.faceAttributes.emotion));
             emotions.push(JSON.stringify(face.faceAttributes.emotion));
+            res.send({'message': 'Successfully sent emotion'})
         });
     }).catch(function (error) {
         console.log(error);
+        res.send({'message': 'error'})
     });
 });
 
