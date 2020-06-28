@@ -16,6 +16,11 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import LabelIcon from "@material-ui/icons/Label";
+import Button from '@material-ui/core/Button';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import InstructorHome from './Intructor/InstructorHome';
+import StudentHome from './Student/StudentHome';
 
 const drawerWidth = 240;
 
@@ -113,6 +118,14 @@ const PersistentDrawerLeft = (props) => {
           <Typography variant="h6" noWrap>
             Student Emotions
           </Typography>
+          <GridList cellHeight={'inherit'} cols={2}>
+            <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
+                <Button>{"Student"}</Button>
+            </GridListTile>
+            <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
+              <Button onClick={() => <StudentHome />}>{"Tutor"}</Button>
+            </GridListTile>
+          </GridList>
         </Toolbar>
       </AppBar>
       <Drawer

@@ -8,11 +8,20 @@ import StudentHome from './Student/StudentHome';
 
 import * as serviceWorker from './serviceWorker';
 
+const getBody = (number: int) => {
+    if(number == 1) {
+      return (<StudentHome />);
+    }
+    if(number == 2) {
+      return (<InstructorHome />);
+    }
+};
+
 ReactDOM.render(
   <React.StrictMode>
     {/* <PersistentDrawerLeft /> */}
-    {/* <InstructorHome /> */}
-    <StudentHome />
+    {getBody(2)};
+    {/* <StudentHome /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
