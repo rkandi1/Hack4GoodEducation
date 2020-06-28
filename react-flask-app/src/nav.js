@@ -118,14 +118,14 @@ const PersistentDrawerLeft = (props) => {
           <Typography variant="h6" noWrap>
             Student Emotions
           </Typography>
-          <GridList cellHeight={'inherit'} cols={2}>
-            <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
-                <Button>{"Student"}</Button>
-            </GridListTile>
-            <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
-              <Button onClick={() => <StudentHome />}>{"Tutor"}</Button>
-            </GridListTile>
-          </GridList>
+            {/* <GridList cellHeight={'inherit'} cols={2}>
+              <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
+                  <Button>{"Student"}</Button>
+              </GridListTile>
+              <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
+                <Button>{"Tutor"}</Button>
+              </GridListTile>
+            </GridList> */}
         </Toolbar>
       </AppBar>
       <Drawer

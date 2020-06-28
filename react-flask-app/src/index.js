@@ -5,6 +5,7 @@ import './index.css';
 // import PersistentDrawerLeft from './nav'
 import InstructorHome from './Intructor/InstructorHome';
 import StudentHome from './Student/StudentHome';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import * as serviceWorker from './serviceWorker';
 
@@ -19,8 +20,12 @@ const getBody = (number: int) => {
 
 ReactDOM.render(
   <React.StrictMode>
+    <Router>
+      <Route path="/Student" component={StudentHome} />
+      <Route path="/Instructor" component={InstructorHome} />
+    </Router>
     {/* <PersistentDrawerLeft /> */}
-    {getBody(2)};
+    {/* {getBody(2)}; */}
     {/* <StudentHome /> */}
   </React.StrictMode>,
   document.getElementById('root')

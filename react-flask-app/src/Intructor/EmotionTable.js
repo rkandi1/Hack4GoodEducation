@@ -53,7 +53,7 @@ const CustomizedTables = (props) => {
           <TableRow>
             {/* <StyledTableCell>Name</StyledTableCell> */}
             <StyledTableCell align="center">Name</StyledTableCell>
-            <StyledTableCell align="center">Emotion&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="center">Emotion</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
