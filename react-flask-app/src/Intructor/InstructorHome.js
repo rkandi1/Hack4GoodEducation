@@ -15,7 +15,7 @@ const InstructorHome = (props) => {
   
   useEffect(() => {
     fetch("http://localhost:3000/teacher/emotion")
-    .then((resp) => resp.json())
+    .then((resp) => (resp))
     .then((data) => {
       alert(data);
     })

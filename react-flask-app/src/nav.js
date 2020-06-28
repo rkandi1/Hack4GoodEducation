@@ -118,14 +118,6 @@ const PersistentDrawerLeft = (props) => {
           <Typography variant="h6" noWrap>
             Student Emotions
           </Typography>
-            {/* <GridList cellHeight={'inherit'} cols={2}>
-              <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
-                  <Button>{"Student"}</Button>
-              </GridListTile>
-              <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
-                <Button>{"Tutor"}</Button>
-              </GridListTile>
-            </GridList> */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -153,11 +145,15 @@ const PersistentDrawerLeft = (props) => {
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 1"} />
           </ListItem>
-          <ListItem button key={"Question 2"} onClick={props.setQuestion(2)}>
+          <ListItem button key={"Question 2"} onClick={(e) => {
+            props.setQuestion(2);
+            }}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 2"} />
           </ListItem>
-          <ListItem button key={"Question 3"} onClick={props.setQuestion(3)}>
+          <ListItem button key={"Question 3"} onClick={() => {
+            props.setQuestion(3);
+            }}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 3"} />
           </ListItem>
