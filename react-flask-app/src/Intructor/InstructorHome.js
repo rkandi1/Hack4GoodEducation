@@ -21,14 +21,13 @@ const InstructorHome = (props) => {
     })
     .then((resp) => resp.json())
     .then((data) => {
-      alert(data);
-      console.log(data);
+      setEmotions(data.emotion);
     })
     .catch((err) => {
       alert(err);
     })
   }, [question]);
-  
+  console.log(emotions);
   return (
     <div>
       <Navbar
@@ -36,7 +35,7 @@ const InstructorHome = (props) => {
       />
       <Container>
         <EmotionTable
-          list={emotionList}
+          list={emotions}
         />
       </Container>
     </div>
