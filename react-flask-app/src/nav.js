@@ -81,7 +81,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
 const PersistentDrawerLeft = (props) => {
   const classes = useStyles();
   const theme = useTheme();
@@ -94,6 +93,10 @@ const PersistentDrawerLeft = (props) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return (
     <div className={classes.root}>
@@ -120,10 +123,10 @@ const PersistentDrawerLeft = (props) => {
           </Typography>
           <GridList cellHeight={'inherit'} cols={2}>
             <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
-                <Button>{"Student"}</Button>
+            <Button onClick={() => <StudentHome />}>{"Student"}</Button>
             </GridListTile>
             <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
-              <Button onClick={() => <StudentHome />}>{"Tutor"}</Button>
+              <Button onClick={() => <InstructorHome />}>{"Tutor"}</Button>
             </GridListTile>
           </GridList>
         </Toolbar>
@@ -149,15 +152,15 @@ const PersistentDrawerLeft = (props) => {
         <Divider />
         <List>
           {/* Trying to set the proper question value for each question.*/}
-          <ListItem button key={"Question 1"} onClick={props.setQuestion(1)}>
+          <ListItem button key={"Question 1"} onClick={() => {props.setQuestion(1);}}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 1"} />
           </ListItem>
-          <ListItem button key={"Question 2"} onClick={props.setQuestion(2)}>
+          <ListItem button key={"Question 2"} onClick={() => {props.setQuestion(2);}}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 2"} />
           </ListItem>
-          <ListItem button key={"Question 3"} onClick={props.setQuestion(3)}>
+          <ListItem button key={"Question 3"} onClick={() => {props.setQuestion(3);}}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 3"} />
           </ListItem>
