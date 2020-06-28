@@ -52,14 +52,14 @@ const CustomizedTables = (props) => {
         <TableHead>
           <TableRow>
             {/* <StyledTableCell>Name</StyledTableCell> */}
-            <StyledTableCell align="center">Name</StyledTableCell>
+            <StyledTableCell align="center">Question Number</StyledTableCell>
             <StyledTableCell align="center">Emotion&nbsp;(g)</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {props.list.map((row) => (
             <StyledTableRow key={row.name}>
-              <StyledTableCell align="center">{row.Name}</StyledTableCell>
+              <StyledTableCell align="center">{row.Question}</StyledTableCell>
               <StyledTableCell align="center">{row.Emotion}</StyledTableCell>
             </StyledTableRow>
           ))}

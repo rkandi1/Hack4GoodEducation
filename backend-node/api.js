@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 // Stack of emotions
 let emotions = [];
 
+
 // post request to upload an image
 // >>   made by student
 
@@ -38,6 +39,7 @@ let endpoint = process.env['FACE_ENDPOINT'] + '/face/v1.0/detect';
 
 app.post('/image-upload', upload.single('image.png'), (req, res, next) => {
     console.log("Uploaded a file: " + req.file.filename);
+    console.log("Question number " + req.body.questionID)
     console.log("About to send POST request to AXIOS!")
     let imageUrl = 'http://localhost:3000/image-upload/image.png';
     axios({
@@ -58,7 +60,15 @@ app.post('/image-upload', upload.single('image.png'), (req, res, next) => {
         console.log('Status text: ' + response.statusText);
         response.data.forEach((face) => {
             console.log('Emotion: ' + JSON.stringify(face.faceAttributes.emotion));
-            emotions.push(JSON.stringify(face.faceAttributes.emotion));
+            var dic = face.faceAttributes.emotion;
+            var key = Object.keys(dic).reduce(function(a, b){ return dic[a] > dic[b] ? a : b });
+            /*
+            if (!(req.body.questionID in emotions)) {
+                emotions[req.body.questionID] = [new_emotion]
+            } else {
+                emotions[req.body.questionID].push(new_emotion)
+            }*/
+            emotions.push({"Question": req.body.questionID, "Emotion": key})
             console.log(emotions)
             res.send({'message': 'Successfully sent emotion'})
         });
@@ -72,9 +82,8 @@ app.post('/image-upload', upload.single('image.png'), (req, res, next) => {
 //      >> made by teacher
 app.get('/teacher/emotion', (req, res, next) => {
     // TODO: Send the most recent emotion from the stack of emotions!
-    const most_recent_emotion = emotions[emotions.length-1];
-    console.log(emotions)
-    res.send(`{"emotion": ${most_recent_emotion}}`);
+    //const most_recent_emotion = emotions[emotions.length-1];
+    res.json({emotion: emotions});
 });
 
 
