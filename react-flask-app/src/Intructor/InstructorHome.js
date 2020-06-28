@@ -6,7 +6,6 @@ import Container from '@material-ui/core/Container';
 import EmotionCard from './EmotionCard';
 
 const InstructorHome = (props) => {
-  const [topic, setTopic] = useState('');
   const [emotions, setEmotions] = useState([]);
   const emotionList = [{'Name':'Hemanth', 'Emotion': 'Happy'},
                        {"Name": 'Rohan',"Emotion": 'Surprised'},
@@ -15,7 +14,7 @@ const InstructorHome = (props) => {
   return (
     <div>
       <Navbar
-        setTopic={setTopic}
+        setEmotions={setEmotions}
       />
       <Container>
         <EmotionTable

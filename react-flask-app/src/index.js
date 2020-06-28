@@ -4,12 +4,15 @@ import './index.css';
 // import Camera from './camera';
 // import PersistentDrawerLeft from './nav'
 import InstructorHome from './Intructor/InstructorHome';
+import StudentHome from './Student/StudentHome';
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <PersistentDrawerLeft /> */}
-    <InstructorHome />
+    {/* <InstructorHome /> */}
+    <StudentHome />
   </React.StrictMode>,
   document.getElementById('root')
 );
