@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Camera from './camera';
+// import Camera from './camera';
+import PersistentDrawerLeft from './nav'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Camera />
+    <PersistentDrawerLeft />
+    {/* <Camera /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
