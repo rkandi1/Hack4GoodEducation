@@ -56,8 +56,8 @@ const WebcamCapture = (props) => {
           audio={false}
           ref={webcamRef}
           screenshotFormat="image/jpeg"
-          height={0}
-          width={0}
+          height={200}
+          width={200}
           minScreenshotHeight={500}
           minScreenshotWidth={500}
         />

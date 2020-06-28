@@ -123,10 +123,10 @@ const PersistentDrawerLeft = (props) => {
           </Typography>
           <GridList cellHeight={'inherit'} cols={2}>
             <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
-                <Button>{"Student"}</Button>
+            <Button onClick={() => <StudentHome />}>{"Student"}</Button>
             </GridListTile>
             <GridListTile col={1} style={{'width':80, 'marginLeft':30}}>
-              <Button onClick={() => <StudentHome />}>{"Tutor"}</Button>
+              <Button onClick={() => <InstructorHome />}>{"Tutor"}</Button>
             </GridListTile>
           </GridList>
         </Toolbar>
