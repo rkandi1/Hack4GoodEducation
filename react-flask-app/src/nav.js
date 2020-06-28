@@ -134,12 +134,26 @@ const PersistentDrawerLeft = (props) => {
         </div>
         <Divider />
         <List>
-          {["Question 1", "Question 2", "Question 3"].map((text, index) => (
-            <ListItem button key={text}>
+          <ListItem button key={"Question 1"} onClick={props.setQuestion(1)}>
+            <ListItemIcon>{<LabelIcon />}</ListItemIcon>
+            <ListItemText primary={"Question 1"} />
+          </ListItem>
+          <ListItem button key={"Question 2"} onClick={props.setQuestion(2)}>
+            <ListItemIcon>{<LabelIcon />}</ListItemIcon>
+            <ListItemText primary={"Question 2"} />
+          </ListItem>
+          <ListItem button key={"Question 3"} onClick={props.setQuestion(3)}>
+            <ListItemIcon>{<LabelIcon />}</ListItemIcon>
+            <ListItemText primary={"Question 3"} />
+          </ListItem>
+          {/* {["Question 1", "Question 2", "Question 3"].map((text, index) => (
+            <ListItem button key={index} onClick={(e) => {
+              console.log(e);
+              props.setQuestion(e.target.key);}}>
               <ListItemIcon>{<LabelIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
         </List>
         <Divider />
         <List>
