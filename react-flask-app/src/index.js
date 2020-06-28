@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import Camera from './camera';
 // import PersistentDrawerLeft from './nav'
 import InstructorHome from './Intructor/InstructorHome';
 import StudentHome from './Student/StudentHome';

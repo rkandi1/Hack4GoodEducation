@@ -81,7 +81,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
 const PersistentDrawerLeft = (props) => {
   const classes = useStyles();
   const theme = useTheme();
@@ -94,6 +93,10 @@ const PersistentDrawerLeft = (props) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return (
     <div className={classes.root}>
@@ -149,15 +152,15 @@ const PersistentDrawerLeft = (props) => {
         <Divider />
         <List>
           {/* Trying to set the proper question value for each question.*/}
-          <ListItem button key={"Question 1"} onClick={props.setQuestion(1)}>
+          <ListItem button key={"Question 1"} onClick={() => {props.setQuestion(1);}}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 1"} />
           </ListItem>
-          <ListItem button key={"Question 2"} onClick={props.setQuestion(2)}>
+          <ListItem button key={"Question 2"} onClick={() => {props.setQuestion(2);}}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 2"} />
           </ListItem>
-          <ListItem button key={"Question 3"} onClick={props.setQuestion(3)}>
+          <ListItem button key={"Question 3"} onClick={() => {props.setQuestion(3);}}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 3"} />
           </ListItem>
