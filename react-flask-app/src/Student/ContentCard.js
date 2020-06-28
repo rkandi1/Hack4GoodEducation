@@ -36,6 +36,8 @@ const SimpleCard = (props) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
   console.log(props.question);
+
+  // Change card based on the number.
   if(props.question == 3) {
     return (
       <Card className={classes.root} alignItems={'center'}>

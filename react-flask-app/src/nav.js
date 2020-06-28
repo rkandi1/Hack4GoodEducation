@@ -76,6 +76,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
 const PersistentDrawerLeft = (props) => {
   const classes = useStyles();
   const theme = useTheme();
@@ -134,6 +135,7 @@ const PersistentDrawerLeft = (props) => {
         </div>
         <Divider />
         <List>
+          {/* Trying to set the proper question value for each question.*/}
           <ListItem button key={"Question 1"} onClick={props.setQuestion(1)}>
             <ListItemIcon>{<LabelIcon />}</ListItemIcon>
             <ListItemText primary={"Question 1"} />
